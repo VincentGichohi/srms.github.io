@@ -6,9 +6,9 @@ from datetime import date
 
 class Student(models.Model):
     GENDER = (
-    ('Male', 'Male'),
-    ('Female', 'Female'),
-    ('Other', 'Other'),
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
     )
     student_name = models.CharField(max_length=100)
     student_roll = models.IntegerField(unique=True)
@@ -22,4 +22,3 @@ class Student(models.Model):
 
     def __str__(self):
         return self.student_name
-        
