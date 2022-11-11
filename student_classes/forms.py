@@ -8,7 +8,7 @@ class StudentClassForm(ModelForm):
         model = StudentClass
         fields = '__all__'
         widgets = {
-            'class_name': forms.TextInput(attrs={'class': form-control}),
+            'class_name': forms.TextInput(attrs={'class': 'form-control'}),
             'class_name_in_numeric': forms.NumberInput(attrs={'class': 'form-control'}),
             'section': forms.TextInput(attrs={'class': 'form-control'})
         }
