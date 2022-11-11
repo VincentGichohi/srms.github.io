@@ -5,3 +5,6 @@ from .forms import StudentForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
+class StudentCreateView(LoginRequiredMixin, CreateView):
+    model = Student

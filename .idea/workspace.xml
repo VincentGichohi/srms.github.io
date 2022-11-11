@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd11f346-691b-4674-a71a-89dc829568c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/students/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/students/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/students/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/students/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
