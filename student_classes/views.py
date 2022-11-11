@@ -17,6 +17,10 @@ class StudentClassCreateView(LoginRequiredMixin, CreateView):
         context['panel_name'] = 'Classes'
         context['panel_title'] = 'Add Class'
         return context
-        
+
+
+class StudentClassListView(LoginRequiredMixin, ListView):
+    mode = StudentClass
+
 
 
