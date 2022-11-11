@@ -41,4 +41,12 @@ class StudentClassUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('student_classes:class_list')
 
 
+class StudentClassDeleteView(LoginRequiredMixin, DeleteView):
+    model = StudentClass
+    template_name_suffix = '_delete'
+    success_url = reverse_lazy('student_classes:class_list')
+
+
+
+
 
