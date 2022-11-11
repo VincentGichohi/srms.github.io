@@ -46,6 +46,12 @@ class StudentClassDeleteView(LoginRequiredMixin, DeleteView):
     template_name_suffix = '_delete'
     success_url = reverse_lazy('student_classes:class_list')
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentClassDeleteView, self).get_context_data(**kwargs)
+        context['main_page_title'] = 'Class Delete Confirmation'
+        context['panel_name'] = 'Classes'
+        context['panel_title'] = 'Delete Class'
+        return context
 
 
 
