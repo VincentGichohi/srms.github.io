@@ -34,3 +34,11 @@ class StudentClassListView(LoginRequiredMixin, ListView):
         return context
 
 
+class StudentClassUpdateView(LoginRequiredMixin, UpdateView):
+    model = StudentClass
+    form_class = forms.StudentClassForm
+    template_name_suffix = '_form'
+    success_url = reverse_lazy('student_classes:class_list')
+
+
+
