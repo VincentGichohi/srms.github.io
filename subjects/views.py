@@ -70,5 +70,15 @@ class SubjectCombinationCreateView(LoginRequiredMixin, CreateView):
 class SubjectCombinationListView(LoginRequiredMixin, ListView):
     model = SubjectCombination
     field_list = [
-        
+        'Class', 'Section', 'Subject'
     ]
+
+    def get_context_data(self, **kwargs):
+        context = super(SubjectCombinationListView,self).get_context_data(**kwargs)
+        context['main_page_title'] = 'Manage Subject Combinations'
+        context['panel_name'] = 'SubjectCombinations'
+        context['panel_title'] = 'View SubjectCombinations Info'
+        context['field_list'] = self.field_list
+        return context
+
+        
