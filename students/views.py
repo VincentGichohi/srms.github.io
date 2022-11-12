@@ -16,5 +16,22 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
         context['panel_name'] = 'Students'
         context['panel_title'] = 'Create Student'
         return context
+
+
+class StudentListView(LoginRequiredMixin, ListView):
+    model = Student
+    field_list = [
+        'Student Name', 'Roll No', 'Class', 'Reg Date', 'Date of birth'
+    ]
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['main_page_title'] = 'Manage Student'
+        context['panel_name'] = 'Students'
+        context['panel_title'] = 'View Students Info'
+        context['field_list'] = self.field_list
+        return context
+
+
         
 
