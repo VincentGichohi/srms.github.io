@@ -88,4 +88,11 @@ class SubjectCombinationUpdateView(LoginRequiredMixin, UpdateView):
     form_class = SubjectCombinationForm
     success_url = reverse_lazy('subjects:subject_combination_list')
 
-    
+
+class SubjectCombinationDeleteView(LoginRequiredMixin, DeleteView):
+    model = SubjectCombination
+    template_name_suffix = '_delete'
+    success_url = reverse_lazy('subjects:subject_combination_list')
+
+    def get_context_data(self, **kwargs):
+        
