@@ -33,5 +33,6 @@ class StudentListView(LoginRequiredMixin, ListView):
         return context
 
 
-        
+class StudentUpdateVIew(LoginRequiredMixin, UpdateView):
+    
 
