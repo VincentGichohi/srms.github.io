@@ -81,4 +81,11 @@ class SubjectCombinationListView(LoginRequiredMixin, ListView):
         context['field_list'] = self.field_list
         return context
 
-        
+
+class SubjectCombinationUpdateView(LoginRequiredMixin, UpdateView):
+    model = SubjectCombination
+    template_name_suffix = '_form'
+    form_class = SubjectCombinationForm
+    success_url = reverse_lazy('subjects:subject_combination_list')
+
+    
