@@ -12,4 +12,21 @@ class SubjectForm(ModelForm):
             'subject_code': forms.NumberInput(attrs={'class': 'form-control'})
         }
 
+
+class SubjectCombinationForm(ModelForm):
+    class Meta:
+        model = SubjectCombination
+        fields = ['subject_class', 'select_subject']
+        widgets = {
+            'select_class': forms.Select(
+                attrs={
+                    'class': 'form-control'
+                }
+            ),
+            'select_subject': forms.Select(
+                attrs={
+                    'class': 'form-control'
+                }
+            ),
+        }
         
