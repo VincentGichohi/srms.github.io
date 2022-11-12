@@ -65,4 +65,10 @@ class SubjectCombinationCreateView(LoginRequiredMixin, CreateView):
         context['panel_name'] = 'SubjectCombinations'
         context['panel_title'] = 'Create SubjectCombination'
         return context
+
+    
+class SubjectCombinationListView(LoginRequiredMixin, ListView):
+    model = SubjectCombination
+    field_list = [
         
+    ]
