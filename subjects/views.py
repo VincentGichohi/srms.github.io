@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Subject, SubjectCombination
-from .forms import SubjectForm, SubjectCombination
+from .forms import SubjectForm, SubjectCombinationForm
 from django.urls import reverse_lazy
 
 
@@ -38,4 +38,13 @@ class SubjectUpdateView(LoginRequiredMixin, UpdateView):
     template_name_suffix = '_form'
     form_class = SubjectForm
     success_url = reverse_lazy('subjects:subject_list')
-    
+
+
+class SubjedctDeleteView(LoginRequiredMixin, DeleteView):
+    model = Subject
+    form_class = SubjectCombinationForm
+    template_name_suffix = '_delete'
+
+    def get_context_data(self, **kwargs):
+        context = super(SubjedctDeleteView, self).get_context_data(**kwargs)
+        
