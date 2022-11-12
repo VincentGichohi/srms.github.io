@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class StudentCreateView(LoginRequiredMixin, CreateView):
     model = Student
-    from_class = StudentForm
+    form_class = StudentForm
 
     def get_context_data(self, **kwargs):
         context =  super(StudentCreateView, self).get_context_data(**kwargs)
@@ -59,7 +59,7 @@ class StudentDeleteView(LoginRequiredMixin, DeleteView):
         context['panel_name'] = 'Students'
         context['panel_title'] = 'Delete Student'
         return context
-        
+
 
 
 
