@@ -15,4 +15,9 @@ class Subject(models.Model):
     def get_absolute_url(self):
         return reverse('subjects:subject_list')
 
-        
+
+class SubjectCombination(models.Model):
+    select_class = models.ForeignKey(StudentClass, on_delete=models.CASCADE)
+    select_subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
+
+    
