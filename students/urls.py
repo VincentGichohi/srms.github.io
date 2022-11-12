@@ -4,6 +4,7 @@ from students.views import (
     StudentCreateView, StudentListView, StudentUpdateView, StudentDeleteView
 )
 
+
 app_name = 'students'
 
 urlpatterns = [
