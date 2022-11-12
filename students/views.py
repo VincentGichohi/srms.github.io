@@ -35,18 +35,32 @@ class StudentListView(LoginRequiredMixin, ListView):
 
 class StudentUpdateVIew(LoginRequiredMixin, UpdateView):
     model = Student
-    template_name_suffix = '_delete'
+    template_name_suffix = '_form'
+    form_class = StudentForm
     success_url = reverse_lazy('students:student_list')
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateVIew, self).get_context_data(**kwargs)
-        context['main_page_title'] = 'Student Delete Confirmation'
-        context['panel_name'] = 'Student'
-        context['panel_title'] = 'Delete Student'
+        context['main_page_title'] = 'Update Student Info'
+        context['panel_name'] = 'Students'
+        context['panel_title'] = 'Update Student Info'
         return context
 
 
 
 class StudentDeleteView(LoginRequiredMixin, DeleteView):
-    
+    model = Student
+    template_name_suffix = '_delete'
+    success_url = reverse_lazy('students:student_list')
+
+    def get_context_data(self, **kwargs):
+        context =  super(StudentDeleteView, self).get_context_data(**kwargs)
+        context['main_page_title'] = 'Student Delete Confirmation'
+        context['panel_name'] = 'Students'
+        context['panel_title'] = 'Delete Student'
+        return context
+        
+
+
+
 
