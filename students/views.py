@@ -47,4 +47,6 @@ class StudentUpdateVIew(LoginRequiredMixin, UpdateView):
 
 
 
+class StudentDeleteView(LoginRequiredMixin, DeleteView):
+    
 
