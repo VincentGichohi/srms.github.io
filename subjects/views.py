@@ -51,5 +51,18 @@ class SubjedctDeleteView(LoginRequiredMixin, DeleteView):
         context['panel_name'] = 'Subject'
         context['panel_title'] = 'Delete Subject'
         return context
-        
 
+
+
+class SubjectCombinationCreateView(LoginRequiredMixin, CreateView):
+    model = SubjectCombination
+    form_class = SubjectCombinationForm
+    template_name_suffix = '_form'
+
+    def get_context_data(self, **kwargs):
+        context = super(SubjectCombinationCreateView, self).get_context_data(**kwargs)
+        context['main_page_title'] = 'SubjectCombination Creation'
+        context['panel_name'] = 'SubjectCombinations'
+        context['panel_title'] = 'Create SubjectCombination'
+        return context
+        
