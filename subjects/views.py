@@ -16,4 +16,20 @@ class SubjectCreateView(LoginRequiredMixin, CreateView):
         context['panel_name'] = 'Subjects'
         context['panel_title'] = 'Add a subject'
         return context
-        
+
+
+class SubjectListView(LoginRequiredMixin, ListView):
+    model = Subject
+    field_list = [
+        'Subject Name', 'Subject Code', 'Creation Date', 'Last Updated'
+    ]
+
+    def get_context_data(self, **kwargs):
+        context = super(SubjectListView, self).get_context_data(**kwargs)
+        context['main_page_title'] = 'Manage Subjects'
+        context['panel_name'] = 'Subjects'
+        context['panel_title'] = 'View SUbjects Info'
+        context['field_list'] = self.field_list
+        return context
+
+
