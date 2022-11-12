@@ -33,3 +33,9 @@ class SubjectListView(LoginRequiredMixin, ListView):
         return context
 
 
+class SubjectUpdateView(LoginRequiredMixin, UpdateView):
+    model = Subject
+    template_name_suffix = '_form'
+    form_class = SubjectForm
+    success_url = reverse_lazy('subjects:subject_list')
+    
