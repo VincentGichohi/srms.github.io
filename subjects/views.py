@@ -95,4 +95,9 @@ class SubjectCombinationDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('subjects:subject_combination_list')
 
     def get_context_data(self, **kwargs):
+        context = super(SubjectCombinationDeleteView, self).get_context_data(**kwargs)
+        context['main_page_title'] = 'SubjectCombination Delete Confirmation'
+        context['panel_name'] = 'SubjectCombination'
+        context['panel_title'] = 'Delete SubjectCombination'
+        return context
         
