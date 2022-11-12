@@ -1,20 +1,20 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
-from .models import Student
-from .forms import StudentForm
-from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Subject, SubjectCombination
+from .forms import SubjectForm, SubjectCombinationForm
+from django.urls import reverse_lazy
 
 
-class StudentCreateView(LoginRequiredMixin, CreateView):
-    model = Student
-    form_class = StudentForm
+class SubjectCreateView(LoginRequiredMixin, CreateView):
+    model = Subject
+    form_class = SubjectForm
 
     def get_context_data(self, **kwargs):
-        context =  super(StudentCreateView, self).get_context_data(**kwargs)
-        context['amin_page_title'] = 'Student Creation'
-        context['panel_name'] = 'Students'
-        context['panel_title'] = 'Create Student'
+        context = super(SubjectCreateView, self).get_context_data(**kwargs)
+        context['main_page_title'] = 'Subject Creation'
+        context['panel_name'] = 'Subjects'
+        context['panel_title'] = 'Add Subject'
         return context
 
 
