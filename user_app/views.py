@@ -46,3 +46,15 @@ def account_login(request):
             return redirect("/")
 
     return render(request, "voting/login.html", context)
+
+
+def account_logout(request):
+    user = request.user
+    if user.is_authenticated:
+        logout(request)
+        messages.success(request, "Thank you for visiting us!")
+    else:
+        messages.error(
+            request, "You need to be logged in to perform this action")
+
+    return redirect(reverse("account_login"))
