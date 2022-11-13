@@ -24,3 +24,25 @@ def account_register(request):
     return render(request, "voting/registration.html", context)
 
 
+def account_login(request):
+    if request.user.is_authenticated:
+        if request.user.user_type == '1':
+            return redirect(reverse("adminDashboard"))
+        else:
+            return redirect(reverse("voterDashboard"))
+
+    context = {}
+    if request.method == 'POST':
+        user = EmailBackend.authenticate(request, username=request.POST.get(
+            'email'), password=request.POST.get('password'))
+        if user != None:
+            login(request, user)
+            if user.user_type == '1':
+                return redirect(reverse("adminDashboard"))
+            else:
+                return redirect(reverse("voterDashboard"))
+        else:
+            messages.error(request, "Invalid details")
+            return redirect("/")
+
+    return render(request, "voting/login.html", context)
