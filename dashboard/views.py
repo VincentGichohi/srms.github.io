@@ -10,4 +10,8 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth import authenticate, login
 from django.views.generic import TemplateView, View
 from django.contrib.auth.models import User
-# from results.models
+# from results.models import DeclareResult
+from django.http import JsonResponse
+from django.urls import reverse_lazy
+from django.core import serializers
+import json
