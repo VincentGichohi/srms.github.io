@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd11f346-691b-4674-a71a-89dc829568c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/results/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/results/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/results/forms.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/vincent.gichohi/Documents/Personal-projects/SRMS"
+    "last_opened_file_path": "C:/Users/vincent.gichohi/Documents/Personal-projects/SRMS",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
