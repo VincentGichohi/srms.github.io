@@ -96,3 +96,13 @@ def result_delete_view(request, pk):
         return redirect('results: result_list')
     return render(request, 'results/result_delete.html', {'object': obj})
 
+
+class DeclareResultListView(LoginRequiredMixin, ListView):
+    model = DeclareResult
+
+    field_list = [
+        'Student Name', 'Roll No', 'Class', 'Reg Date', 'View Result'
+    ]
+
+    def get_context_data(self, **kwargs):
+        context = super(DeclareResultListView, self).get_context_data(**kwargs)
