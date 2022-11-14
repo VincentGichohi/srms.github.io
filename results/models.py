@@ -14,4 +14,4 @@ class DeclareResult(models.Model):
         return reverse('results:declare_result')
 
     def __str__(self):
-        return "%s Section-%s" % (self.sele~ct_class.class_name, self.select_class.section)
+        return "%s Section-%s" % (self.select_class.class_name, self.select_class.section)
