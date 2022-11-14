@@ -29,3 +29,21 @@ def validated_data(request):
     return HttpResponse(json.dumps(data), content_type="application/json")
 
 
+def declare_result_view(request):
+    context = {}
+    if request.method == 'POST':
+        form = request.POST
+        data = json.loads(json.dumps(form))
+        data.pop('csrfmiddlewaretoken')
+        pk = data['select_class']
+        student = Student.objects.get(id=pk)
+        data.pop('select_class')
+        data.pop('select_student')
+        DeclareResult.objects.create(select_class=clas, select_student=student, marks=data)
+    else:
+        form = DeclareResultForm()
+        context['main_page_title'] = 'Declare Students Result'
+        context['panel_name'] = 'Results'
+        context['panel_title'] = 'Declare Result'
+        context['form'] = form
+    return render(request, 'results/declareresult_form.html', context)
