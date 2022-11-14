@@ -47,3 +47,13 @@ def declare_result_view(request):
         context['panel_title'] = 'Declare Result'
         context['form'] = form
     return render(request, 'results/declareresult_form.html', context)
+
+
+def setup_update_view(request):
+    data = {}
+    if request.method == 'GET':
+        pk_value = int(request.GET['pk_value'])
+        result_obj = get_object_or_404(DeclareResult, pk=pk_value)
+        dt = result_obj.marks
+        return HttpResponse(json.dumps(data), content_type='application/json')
+    return HttpResponse(json.dumps(data), content_type='application/json')
