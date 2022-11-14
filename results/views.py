@@ -12,3 +12,20 @@ from django.core import serializers
 import json
 
 
+def validated_data(request):
+    smt = SubjectCombination.objects.all()
+    data = {}
+    if request.method == 'GET':
+        rc = request.GET['selectedClass']
+        subjects = []
+        for s in smt:
+            if s.select_class.class_name in rc and s.select_class.section in rc:
+                subjects.append(s.select_subject)
+        sir_subjects = serializers.serialize('json', subjects)
+        data['subjects'] = sir_subjects
+        return JsonResponse(data)
+    subjects = None
+    data['result'] = 'Your made a request with empty data'
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
