@@ -106,3 +106,10 @@ class DeclareResultListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(DeclareResultListView, self).get_context_data(**kwargs)
+        context['main_page_title'] = 'Manage Results'
+        context['panel_name'] = 'Results'
+        context['panel_title'] = 'View Results Info'
+        context['field_list'] = self.field_list
+        return context
+
+
