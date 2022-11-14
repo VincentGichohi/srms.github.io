@@ -88,4 +88,11 @@ def result_update_view(request, pk):
     return render(request, 'results/update_form.html', context)
 
 
+@login_required
+def result_delete_view(request, pk):
+    obj = get_object_or_404(DeclareResult, pk)
+    if request.method == 'POST':
+        obj.delete()
+        return redirect('results: result_list')
+    return render(request, 'results/result_delete.html', {'object': obj})
 
