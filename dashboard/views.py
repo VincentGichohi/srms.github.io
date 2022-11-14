@@ -22,3 +22,8 @@ from subjects.models import Subject
 from students.models import Student
 
 
+def index(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        print("")
