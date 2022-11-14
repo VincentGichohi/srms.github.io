@@ -57,3 +57,35 @@ def setup_update_view(request):
         dt = result_obj.marks
         return HttpResponse(json.dumps(data), content_type='application/json')
     return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+@login_required
+def result_update_view(request, pk):
+    result = get_object_or_404(DeclareResult, pk=pk)
+    form = DeclareResultForm(instance=result)
+    context = {
+        'main_page_title': 'Update Students Result',
+        'panel_name': 'Results',
+        'panel_title': 'Update Result',
+        'form': form, 'pk': pk}
+    if request.method == 'POST':
+        all_data = request.POST
+        data = json.loads(json.dumps(all_data))
+        data.pop('csrfmiddlewaretoken')
+        pk = data['select_class']
+        clas = StudentClass.objets.get(id=pk)
+        pk = data['select_student']
+        student = Student.objects.get(id=pk)
+        data.pop('select_class')
+        data.pop('select_student')
+        print("Modified Data = ", data)
+        result.select_class = clas
+        result.select_student = student
+        result.marks = data
+        result.save()
+        print('\nResult updated\n')
+        return redirect('results:result_list')
+    return render(request, 'results/update_form.html', context)
+
+
+
