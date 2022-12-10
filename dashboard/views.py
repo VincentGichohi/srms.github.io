@@ -70,4 +70,16 @@ def find_result_view(request):
             }
             return JsonResponse(data)
     return render(request, 'find_result.html', {'class': student_class})
+
+
+def result(request, pk):
+    object = get_object_or_404(DeclareResult, pk=pk)
+    lst = []
+    marks = []
+    for i in range(int(len(object.marks)/2)):
+        lst.append(object.marks['subject_' + str(i)])
+        lst.append(object.marks['subject_' + str(i) + '_mark'])
+        marks.append(lst)
+        lst = []
+    return render(request, 'result.html', {'object': object, 'pk': pk, 'marks': marks})
     
