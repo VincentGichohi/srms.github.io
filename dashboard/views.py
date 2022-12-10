@@ -105,6 +105,23 @@ def renderPdf(template, content={}):
         return HttpResponse(result.getvalue(), content_type="application/pdf")
     else:
         return None
+
+class pdf(View):
+    def get(self, request, id):
+        try:
+            query = get_object_or_404(DeclareResult, id=id)
+        except:
+            Http404('Content not Found')
+        marks = []
+        lst = []
+        for i in range(int(len(query.marks)/2)):
+            lst.append(query.marks['subject_' + str(i)])
+            lst.append(query.marks['subject_' + str(i) + '_mark'])
+            marks.append(lst)
+            lst = []
+        article_pdf = renderPdf('result.html', {'object': query, 'marks': marks})
+        return HttpResponse(article_pdf, content_type='application/pdf')
         
+
 
 
