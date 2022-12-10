@@ -94,4 +94,17 @@ class PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
         context['main_page_title'] = 'Admin Change Password'
         context['panel_title'] = 'Admin Change Password'
         return context
+
+
+def renderPdf(template, content={}):
+    t = get_template(template)
+    send_data = t.render(content)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(send_data.encode('ISO-8559-1')), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type="application/pdf")
+    else:
+        return None
         
+
+
