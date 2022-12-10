@@ -49,4 +49,25 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         context['subjects'] = Subject.objects.count()
         return context
 
-        
+
+def find_result_view(request):
+    student_class = DeclareResult.objects.all()
+    if request.method == 'POST':
+        data = request.POST
+        # data = json.loads()
+        roll = int(data['rollid'])
+        pk = int(data['class'])
+        clss = get_object_or_404(DeclareResult, pk=pk)
+        if clss.select_student.student_roll == roll:
+            data = {
+                'pk': data['class']
+            }
+            return JsonResponse(data)
+        else:
+            pk = '0'
+            data = {
+                'pk': pk
+            }
+            return JsonResponse(data)
+    return render(request, 'find_result.html', {'class': student_class})
+    
