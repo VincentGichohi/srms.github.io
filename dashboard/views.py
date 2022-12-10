@@ -82,4 +82,11 @@ def result(request, pk):
         marks.append(lst)
         lst = []
     return render(request, 'result.html', {'object': object, 'pk': pk, 'marks': marks})
+
+
+class PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
+    success_url = reverse_lazy('dashboard: dashboard')
+    template_name = 'password_change_form.html'
+
     
+
