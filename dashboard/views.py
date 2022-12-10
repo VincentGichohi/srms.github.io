@@ -26,4 +26,10 @@ def index(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        print("")
+        print("\nUser Email = ", email)
+        print('Password', password)
+        user = authenticate(email=email, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect('dashboard:dashboard')
+        
