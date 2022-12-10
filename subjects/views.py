@@ -40,13 +40,13 @@ class SubjectUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('subjects:subject_list')
 
 
-class SubjedctDeleteView(LoginRequiredMixin, DeleteView):
+class SubjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Subject
     form_class = SubjectCombinationForm
     template_name_suffix = '_delete'
 
     def get_context_data(self, **kwargs):
-        context = super(SubjedctDeleteView, self).get_context_data(**kwargs)
+        context = super(SubjectDeleteView, self).get_context_data(**kwargs)
         context['main_page_ttile'] = 'Subject Delete Confirmation'
         context['panel_name'] = 'Subject'
         context['panel_title'] = 'Delete Subject'

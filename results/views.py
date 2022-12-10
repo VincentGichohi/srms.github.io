@@ -12,7 +12,7 @@ from django.core import serializers
 import json
 
 
-def validated_data(request):
+def validate_data(request):
     smt = SubjectCombination.objects.all()
     data = {}
     if request.method == 'GET':

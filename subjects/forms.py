@@ -16,7 +16,7 @@ class SubjectForm(ModelForm):
 class SubjectCombinationForm(ModelForm):
     class Meta:
         model = SubjectCombination
-        fields = ['subject_class', 'select_subject']
+        fields = ['select_class', 'select_subject']
         widgets = {
             'select_class': forms.Select(
                 attrs={
