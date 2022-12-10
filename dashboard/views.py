@@ -23,13 +23,18 @@ from students.models import Student
 
 
 def index(request):
-    if request.method == 'POST':
-        email = request.POST['email']
+    if request.method == "POST":
+        username = request.POST['username']
         password = request.POST['password']
-        print("\nUser Email = ", email)
-        print('Password', password)
-        user = authenticate(email=email, password=password)
-    if user is not None:
-        login(request, user)
-        return redirect('dashboard:dashboard')
+        print("\nUser Name = ", username)
+        print("Password = ", password)
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard:dashboard')
+        else:
+            context = {'message': 'Invalid User Name and Password'}
+            return render(request, 'index.html', context)
+    return render(request, 'index.html', {'name': 'Vincent Gichohi', 'pass': 'demo@srms'})
+
         
