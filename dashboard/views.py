@@ -38,3 +38,15 @@ def index(request):
     return render(request, 'index.html', {'name': 'Vincent Gichohi', 'pass': 'demo@srms'})
 
         
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(DashboardView, self).get_context_data(**kwargs)
+        context['cls'] = StudentClass.objects.count()
+        context['results'] = DeclareResult.objects.count()
+        context['students'] = Student.objects.count()
+        context['subjects'] = Subject.objects.count()
+        return context
+
+        
