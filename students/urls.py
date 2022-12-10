@@ -4,7 +4,6 @@ from students.views import (
     StudentCreateView, StudentListView, StudentUpdateView, StudentDeleteView
 )
 
-
 app_name = 'students'
 
 urlpatterns = [
@@ -13,3 +12,4 @@ urlpatterns = [
     path('update/<int:pk>', StudentUpdateView.as_view(), name='student_update'),
     path('delete/<int:pk>', StudentDeleteView.as_view(), name='student_delete'),
 ]
+
