@@ -88,5 +88,10 @@ class PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     success_url = reverse_lazy('dashboard: dashboard')
     template_name = 'password_change_form.html'
 
-    
 
+    def get_context_data(self, **kwargs):
+        context = super(PasswordChangeView, self).get_context_data(**kwargs)
+        context['main_page_title'] = 'Admin Change Password'
+        context['panel_title'] = 'Admin Change Password'
+        return context
+        
