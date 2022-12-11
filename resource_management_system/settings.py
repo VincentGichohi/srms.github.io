@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'student_classes',
     'students.apps.StudentsConfig',
     'subjects.apps.SubjectsConfig',
+    'user_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
