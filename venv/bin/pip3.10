@@ -1,4 +1,4 @@
-#!/home/vinny/Documents/Code-2/SRMS/venv/bin/python3
+#!/home/vinny/Documents/Code-2/SRMS/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
