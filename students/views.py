@@ -18,21 +18,18 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
         context['panel_title'] = 'Create Student'
         return context
 
-
 class StudentListView(LoginRequiredMixin, ListView):
     model = Student
     field_list = [
         'Student Name', 'Roll No', 'Class', 'Reg Date', 'Date of birth'
     ]
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['main_page_title'] = 'Manage Students'
-        context['panel_name'] = 'Students'
-        context['panel_title'] = 'View Students Info'
-        context['field_list'] = self.field_list
+        context['panel_name']   =   'Students'
+        context['panel_title']  =   'View Students Info'
+        context['field_list']   =   self.field_list
         return context
-
 
 class StudentUpdateView(LoginRequiredMixin, UpdateView):
     model = Student
@@ -46,7 +43,6 @@ class StudentUpdateView(LoginRequiredMixin, UpdateView):
         context['panel_name'] = 'Students'
         context['panel_title'] = 'Update Student info'
         return context
-
 
 class StudentDeleteView(LoginRequiredMixin, DeleteView):
     model = Student
